@@ -1,3 +1,0 @@
-name:"Andiy",
-    age:'25',
-    citi: "Lviv"

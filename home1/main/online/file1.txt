@@ -1,3 +1,0 @@
-name:'Roman',
-    age:'45',
-    citi:'Odesa'
