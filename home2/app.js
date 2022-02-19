@@ -66,16 +66,31 @@ app.get('/users/:id', ({params}, res) => {
         res.redirect('/error');
         return;
     }
-    res.render('userInfo',{user});
+    res.render('userInfo', {user});
 })
+
 app.get('/error', (req, res) => {
-    res.render('error', { error });
+    res.render('error', {error});
 });
 
-app.use((req,res)=>{
+app.use((req, res) => {
     res.render('notFaund')
 })
 
+app.get('/signIn', (req, res) => {
+    res.render('signIn');
+})
+
+app.post('/signIn', ({ body }, res) => {
+    const user = users.find(user => user.email === body.email && user.password === body.password);
+    if (!user) {
+        error = 'не правильний Емайл та пароль((упс';
+        res.redirect('/error');
+        return;
+    }
+
+    res.redirect(`/users/${user.id}`);
+});
 
 app.listen(5200, () => {
     console.log('Serves has started on PORT 5200')
