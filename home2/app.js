@@ -28,13 +28,13 @@ let error = '';
 app.use(apiRoutes);
 
 
-// app.get('/error', (req, res) => {
-//     res.render('error', {error});
-// });
-//
-// app.use((req, res) => {
-//     res.render('notFaund')
-// })
+app.get('/error', (req, res) => {
+    res.render('error', {error});
+});
+
+app.use((req, res) => {
+    res.render('notFaund')
+})
 
 app.listen(5200, () => {
     console.log('Serves has started on PORT 5200')
