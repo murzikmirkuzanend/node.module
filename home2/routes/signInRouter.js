@@ -8,6 +8,6 @@ const signInMiddleware = require('../middleware/signInMiddleware');
 
 signInRouter.get('/', signInController.signInAll);
 signInRouter.post('/', signInMiddleware.checkUserAuth
-    ,signInController.singInPost);
+    , signInController.singInPost);
 
 module.exports = signInRouter;

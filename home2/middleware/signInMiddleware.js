@@ -11,7 +11,7 @@ module.exports = {
 
             req.user = user;
             next();
-        } catch ({ message }) {
+        } catch ({message}) {
             res.redirect(`/error?error=${message}`);
         }
     }

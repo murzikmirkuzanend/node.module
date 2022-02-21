@@ -4,7 +4,7 @@ const users = require('../db/users')
 module.exports = {
     UserIdValid: (req, res, next) => {
         try {
-            const { id } = req.params;
+            const {id} = req.params;
 
             if (!Number.isInteger(+id) || Number.isNaN(+id)) {
                 throw new Error('Not valid ID!');
@@ -15,7 +15,7 @@ module.exports = {
 
             req.user = user;
             next();
-        } catch ({ message }) {
+        } catch ({message}) {
             res.redirect(`/error?error=${message}`);
         }
     },
@@ -45,7 +45,7 @@ module.exports = {
             }
 
             next();
-        } catch ({ message }) {
+        } catch ({message}) {
             res.redirect(`/error?error=${message}`);
         }
     }

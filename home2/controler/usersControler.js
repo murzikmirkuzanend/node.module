@@ -21,7 +21,7 @@ module.exports = {
         res.render('users', {users});
     },
 
-    getUsersBayId: ({params,user}, res ) => {
+    getUsersBayId: ({params, user}, res) => {
         res.render('userInfo', {user});
     }
 }
