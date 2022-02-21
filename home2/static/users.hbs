@@ -13,6 +13,9 @@
 {{#each users}}
      <div>firstName: {{this.firstName}}</div>
     <div>lastName: {{this.lastName}}</div>
+    <form  action="/users/{{this.id}}">
+        <input type="submit" value="info">
+    </form>
     {{/each}}
 </div>
 
