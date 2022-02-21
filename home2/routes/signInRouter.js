@@ -4,7 +4,10 @@ const signInRouter = Router();
 
 const signInController = require('../controler/signInControler')
 
-signInRouter.get('/',signInController.signInAll )
-signInRouter.post('/',signInController.singInPost )
+const signInMiddleware = require('../middleware/signInMiddleware')
+
+signInRouter.get('/', signInController.signInAll)
+signInRouter.post('/', signInController.singInPost,
+    signInMiddleware.checkUserAuth)
 
 module.exports = signInRouter
