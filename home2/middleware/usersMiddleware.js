@@ -4,14 +4,14 @@ const users = require('../db/users')
 module.exports = {
     UserIdValid: (req, res, next) => {
         try {
-            const { userId } = req.params;
+            const { id } = req.params;
 
-            if (!Number.isInteger(+userId) || Number.isNaN(+userId)) {
+            if (!Number.isInteger(+id) || Number.isNaN(+id)) {
                 throw new Error('Not valid ID!');
             }
 
-            const user = users.find(user => user.id === +userId);
-            if (!user) throw new Error(`User with ID: ${userId} exist!`);
+            const user = users.find(user => user.id === +id);
+            if (!user) throw new Error(`User with ID: ${id} exist!`);
 
             req.user = user;
             next();
@@ -43,17 +43,6 @@ module.exports = {
             if (!city) {
                 throw new Error('Not valid city');
             }
-
-            next();
-        } catch ({ message }) {
-            res.redirect(`/error?error=${message}`);
-        }
-    },
-
-    isUserExist: ({ body }, res, next) => {
-        try {
-            const userExist = users.some(user => user.email === body.email);
-            if (userExist) throw new Error('сорі такий емайл вже існує)');
 
             next();
         } catch ({ message }) {

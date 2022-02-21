@@ -9,10 +9,10 @@ module.exports = {
             const user = users.find(user => user.email === email && user.password === password);
             if (!user) throw new Error('Wrong email or password!');
 
-            req.user = user
+            req.user = user;
             next();
         } catch ({ message }) {
             res.redirect(`/error?error=${message}`);
         }
     }
-}
+};

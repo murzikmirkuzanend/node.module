@@ -4,10 +4,12 @@ const loginRouter = Router();
 
 const usersMiddleware  = require('../middleware/usersMiddleware');
 
-const postsController = require('../controler/loginControler')
+const postsController = require('../controler/loginControler');
 
 loginRouter.get('/',postsController.getLogin );
-loginRouter.post('/',postsController.pushUsers,
-    usersMiddleware.UserDataValid)
+loginRouter.post('/',
+    usersMiddleware.UserDataValid,
+    postsController.pushUsers
+    );
 
 module.exports = loginRouter;
